@@ -1308,3 +1308,279 @@ Error Number:207,State:1,Class:16
 2018-03-07 22:28:49.735 -05:00 [INF] User created a new account with password.
 2018-03-07 22:28:50.202 -05:00 [INF] AuthenticationScheme: Identity.Application was successfully authenticated.
 2018-03-07 22:28:50.206 -05:00 [INF] AuthenticationScheme: Identity.Application was successfully authenticated.
+2018-03-09 09:24:57.238 -05:00 [DBG] Using Identity.Application as default scheme for authentication
+2018-03-09 09:24:57.293 -05:00 [DBG] Using Identity.External as default scheme for sign-in
+2018-03-09 09:24:57.296 -05:00 [DBG] Using Identity.External as default scheme for sign-out
+2018-03-09 09:24:57.298 -05:00 [DBG] Using Identity.Application as default scheme for challenge
+2018-03-09 09:24:57.300 -05:00 [DBG] Using Identity.Application as default scheme for forbid
+2018-03-09 09:24:57.746 -05:00 [DBG] Starting token cleanup
+2018-03-09 09:25:09.390 -05:00 [INF] AuthenticationScheme: Identity.Application was challenged.
+2018-03-09 09:25:16.550 -05:00 [DBG] Augmenting SignInContext
+2018-03-09 09:25:18.164 -05:00 [DBG] Adding idp claim with value: local
+2018-03-09 09:25:18.167 -05:00 [DBG] Adding amr claim with value: pwd
+2018-03-09 09:25:18.170 -05:00 [DBG] Adding auth_time claim with value: 1520605516
+2018-03-09 09:25:18.189 -05:00 [INF] AuthenticationScheme: Identity.Application signed in.
+2018-03-09 09:25:18.560 -05:00 [INF] {
+  "Name": "User Login Success",
+  "Category": "Authentication",
+  "EventType": "Success",
+  "Id": 1000,
+  "Username": "dimortizp91@gmail.com",
+  "SubjectId": "f6ac8e90-d578-428e-9d5e-557a53901551",
+  "DisplayName": "dimortizp91@gmail.com",
+  "Endpoint": "UI",
+  "ActivityId": "0HLC5P64J6A3M:00000002",
+  "TimeStamp": "2018-03-09T14:25:18Z",
+  "ProcessId": 15080,
+  "LocalIpAddress": "127.0.0.1:33426",
+  "RemoteIpAddress": "::1"
+}
+2018-03-09 09:25:18.597 -05:00 [INF] AuthenticationScheme: Identity.Application was successfully authenticated.
+2018-03-09 09:25:18.601 -05:00 [INF] AuthenticationScheme: Identity.Application was successfully authenticated.
+2018-03-09 09:25:18.813 -05:00 [DBG] 1 persisted grants found for f6ac8e90-d578-428e-9d5e-557a53901551
+2018-03-09 09:25:22.540 -05:00 [DBG] mvc found in database: true
+2018-03-09 09:25:22.871 -05:00 [DBG] Found ["openid","profile"] identity scopes in database
+2018-03-09 09:25:23.761 -05:00 [DBG] Found ["api1"] API scopes in database
+2018-03-09 09:45:19.735 -05:00 [INF] AuthenticationScheme: Identity.Application was successfully authenticated.
+2018-03-09 09:45:19.741 -05:00 [INF] AuthenticationScheme: Identity.Application was successfully authenticated.
+2018-03-09 09:46:38.090 -05:00 [INF] AuthenticationScheme: Identity.Application was successfully authenticated.
+2018-03-09 09:46:38.093 -05:00 [INF] AuthenticationScheme: Identity.Application was successfully authenticated.
+2018-03-09 09:49:10.383 -05:00 [INF] AuthenticationScheme: Identity.Application was successfully authenticated.
+2018-03-09 09:49:10.387 -05:00 [INF] AuthenticationScheme: Identity.Application was successfully authenticated.
+2018-03-09 09:49:10.432 -05:00 [INF] AuthenticationScheme: Identity.Application signed out.
+2018-03-09 09:49:10.436 -05:00 [INF] AuthenticationScheme: Identity.External signed out.
+2018-03-09 09:49:10.439 -05:00 [INF] AuthenticationScheme: Identity.TwoFactorUserId signed out.
+2018-03-09 09:49:10.465 -05:00 [INF] {
+  "Name": "User Logout Success",
+  "Category": "Authentication",
+  "EventType": "Success",
+  "Id": 1002,
+  "SubjectId": "f6ac8e90-d578-428e-9d5e-557a53901551",
+  "DisplayName": "dimortizp91@gmail.com",
+  "ActivityId": "0HLC5P64J6A3P:00000001",
+  "TimeStamp": "2018-03-09T14:49:10Z",
+  "ProcessId": 15080,
+  "LocalIpAddress": "127.0.0.1:33426",
+  "RemoteIpAddress": "::1"
+}
+2018-03-09 10:08:08.754 -05:00 [DBG] Using Identity.Application as default scheme for authentication
+2018-03-09 10:08:08.809 -05:00 [DBG] Using Identity.External as default scheme for sign-in
+2018-03-09 10:08:08.811 -05:00 [DBG] Using Identity.External as default scheme for sign-out
+2018-03-09 10:08:08.814 -05:00 [DBG] Using Identity.Application as default scheme for challenge
+2018-03-09 10:08:08.816 -05:00 [DBG] Using Identity.Application as default scheme for forbid
+2018-03-09 10:08:09.147 -05:00 [DBG] Starting token cleanup
+2018-03-09 10:46:50.908 -05:00 [DBG] Augmenting SignInContext
+2018-03-09 10:46:52.196 -05:00 [DBG] Adding idp claim with value: local
+2018-03-09 10:46:52.200 -05:00 [DBG] Adding amr claim with value: pwd
+2018-03-09 10:46:52.204 -05:00 [DBG] Adding auth_time claim with value: 1520610410
+2018-03-09 10:46:52.231 -05:00 [INF] AuthenticationScheme: Identity.Application signed in.
+2018-03-09 10:46:52.468 -05:00 [INF] {
+  "Name": "User Login Success",
+  "Category": "Authentication",
+  "EventType": "Success",
+  "Id": 1000,
+  "Username": "dimortizp91@gmail.com",
+  "SubjectId": "f6ac8e90-d578-428e-9d5e-557a53901551",
+  "DisplayName": "dimortizp91@gmail.com",
+  "Endpoint": "UI",
+  "ActivityId": "0HLC5PU8S3DCH:00000002",
+  "TimeStamp": "2018-03-09T15:46:52Z",
+  "ProcessId": 6676,
+  "LocalIpAddress": "127.0.0.1:24763",
+  "RemoteIpAddress": "::1"
+}
+2018-03-09 10:46:52.512 -05:00 [INF] AuthenticationScheme: Identity.Application was successfully authenticated.
+2018-03-09 10:46:52.516 -05:00 [INF] AuthenticationScheme: Identity.Application was successfully authenticated.
+2018-03-09 10:48:51.815 -05:00 [INF] AuthenticationScheme: Identity.Application was successfully authenticated.
+2018-03-09 10:48:51.821 -05:00 [INF] AuthenticationScheme: Identity.Application was successfully authenticated.
+2018-03-09 10:50:26.219 -05:00 [INF] AuthenticationScheme: Identity.Application was successfully authenticated.
+2018-03-09 10:50:26.222 -05:00 [INF] AuthenticationScheme: Identity.Application was successfully authenticated.
+2018-03-09 10:50:30.594 -05:00 [INF] AuthenticationScheme: Identity.Application was successfully authenticated.
+2018-03-09 10:50:30.598 -05:00 [INF] AuthenticationScheme: Identity.Application was successfully authenticated.
+2018-03-09 10:50:37.685 -05:00 [INF] AuthenticationScheme: Identity.Application was successfully authenticated.
+2018-03-09 10:50:37.689 -05:00 [INF] AuthenticationScheme: Identity.Application was successfully authenticated.
+2018-03-09 10:50:37.726 -05:00 [INF] AuthenticationScheme: Identity.Application signed out.
+2018-03-09 10:50:37.730 -05:00 [INF] AuthenticationScheme: Identity.External signed out.
+2018-03-09 10:50:37.733 -05:00 [INF] AuthenticationScheme: Identity.TwoFactorUserId signed out.
+2018-03-09 10:50:37.755 -05:00 [INF] {
+  "Name": "User Logout Success",
+  "Category": "Authentication",
+  "EventType": "Success",
+  "Id": 1002,
+  "SubjectId": "f6ac8e90-d578-428e-9d5e-557a53901551",
+  "DisplayName": "dimortizp91@gmail.com",
+  "ActivityId": "0HLC5PU8S3DCR:00000003",
+  "TimeStamp": "2018-03-09T15:50:37Z",
+  "ProcessId": 6676,
+  "LocalIpAddress": "127.0.0.1:24763",
+  "RemoteIpAddress": "::1"
+}
+2018-03-09 10:51:23.985 -05:00 [DBG] Augmenting SignInContext
+2018-03-09 10:51:23.988 -05:00 [DBG] Adding idp claim with value: local
+2018-03-09 10:51:23.991 -05:00 [DBG] Adding amr claim with value: pwd
+2018-03-09 10:51:23.994 -05:00 [DBG] Adding auth_time claim with value: 1520610683
+2018-03-09 10:51:23.998 -05:00 [INF] AuthenticationScheme: Identity.Application signed in.
+2018-03-09 10:51:24.122 -05:00 [INF] {
+  "Name": "User Login Success",
+  "Category": "Authentication",
+  "EventType": "Success",
+  "Id": 1000,
+  "Username": "dimortizp91@gmail.com",
+  "SubjectId": "f6ac8e90-d578-428e-9d5e-557a53901551",
+  "DisplayName": "dimortizp91@gmail.com",
+  "Endpoint": "UI",
+  "ActivityId": "0HLC5PU8S3DCR:00000005",
+  "TimeStamp": "2018-03-09T15:51:24Z",
+  "ProcessId": 6676,
+  "LocalIpAddress": "127.0.0.1:24763",
+  "RemoteIpAddress": "::1"
+}
+2018-03-09 10:51:24.158 -05:00 [INF] AuthenticationScheme: Identity.Application was successfully authenticated.
+2018-03-09 10:51:24.162 -05:00 [INF] AuthenticationScheme: Identity.Application was successfully authenticated.
+2018-03-09 10:51:31.559 -05:00 [INF] AuthenticationScheme: Identity.Application was successfully authenticated.
+2018-03-09 10:51:31.563 -05:00 [INF] AuthenticationScheme: Identity.Application was successfully authenticated.
+2018-03-09 10:51:33.252 -05:00 [INF] AuthenticationScheme: Identity.Application was successfully authenticated.
+2018-03-09 10:51:33.256 -05:00 [INF] AuthenticationScheme: Identity.Application was successfully authenticated.
+2018-03-09 10:51:33.262 -05:00 [INF] AuthenticationScheme: Identity.Application signed out.
+2018-03-09 10:51:33.265 -05:00 [INF] AuthenticationScheme: Identity.External signed out.
+2018-03-09 10:51:33.268 -05:00 [INF] AuthenticationScheme: Identity.TwoFactorUserId signed out.
+2018-03-09 10:51:33.273 -05:00 [INF] {
+  "Name": "User Logout Success",
+  "Category": "Authentication",
+  "EventType": "Success",
+  "Id": 1002,
+  "SubjectId": "f6ac8e90-d578-428e-9d5e-557a53901551",
+  "DisplayName": "dimortizp91@gmail.com",
+  "ActivityId": "0HLC5PU8S3DCS:00000005",
+  "TimeStamp": "2018-03-09T15:51:33Z",
+  "ProcessId": 6676,
+  "LocalIpAddress": "127.0.0.1:24763",
+  "RemoteIpAddress": "::1"
+}
+2018-03-09 10:54:13.334 -05:00 [DBG] Augmenting SignInContext
+2018-03-09 10:54:13.338 -05:00 [DBG] Adding idp claim with value: local
+2018-03-09 10:54:13.341 -05:00 [DBG] Adding amr claim with value: pwd
+2018-03-09 10:54:13.344 -05:00 [DBG] Adding auth_time claim with value: 1520610853
+2018-03-09 10:54:13.347 -05:00 [INF] AuthenticationScheme: Identity.Application signed in.
+2018-03-09 10:54:13.471 -05:00 [INF] {
+  "Name": "User Login Success",
+  "Category": "Authentication",
+  "EventType": "Success",
+  "Id": 1000,
+  "Username": "dimortizp91@gmail.com",
+  "SubjectId": "f6ac8e90-d578-428e-9d5e-557a53901551",
+  "DisplayName": "dimortizp91@gmail.com",
+  "Endpoint": "UI",
+  "ActivityId": "0HLC5PU8S3DCV:00000007",
+  "TimeStamp": "2018-03-09T15:54:13Z",
+  "ProcessId": 6676,
+  "LocalIpAddress": "127.0.0.1:24763",
+  "RemoteIpAddress": "::1"
+}
+2018-03-09 10:54:13.500 -05:00 [INF] AuthenticationScheme: Identity.Application was successfully authenticated.
+2018-03-09 10:54:13.505 -05:00 [INF] AuthenticationScheme: Identity.Application was successfully authenticated.
+2018-03-09 10:55:53.680 -05:00 [INF] AuthenticationScheme: Identity.Application was successfully authenticated.
+2018-03-09 10:55:53.684 -05:00 [INF] AuthenticationScheme: Identity.Application was successfully authenticated.
+2018-03-09 10:55:59.877 -05:00 [INF] AuthenticationScheme: Identity.Application was successfully authenticated.
+2018-03-09 10:55:59.880 -05:00 [INF] AuthenticationScheme: Identity.Application was successfully authenticated.
+2018-03-09 10:56:02.483 -05:00 [INF] AuthenticationScheme: Identity.Application was successfully authenticated.
+2018-03-09 10:56:02.486 -05:00 [INF] AuthenticationScheme: Identity.Application was successfully authenticated.
+2018-03-09 10:56:02.494 -05:00 [INF] AuthenticationScheme: Identity.Application signed out.
+2018-03-09 10:56:02.499 -05:00 [INF] AuthenticationScheme: Identity.External signed out.
+2018-03-09 10:56:02.508 -05:00 [INF] AuthenticationScheme: Identity.TwoFactorUserId signed out.
+2018-03-09 10:56:02.512 -05:00 [INF] {
+  "Name": "User Logout Success",
+  "Category": "Authentication",
+  "EventType": "Success",
+  "Id": 1002,
+  "SubjectId": "f6ac8e90-d578-428e-9d5e-557a53901551",
+  "DisplayName": "dimortizp91@gmail.com",
+  "ActivityId": "0HLC5PU8S3DD3:00000003",
+  "TimeStamp": "2018-03-09T15:56:02Z",
+  "ProcessId": 6676,
+  "LocalIpAddress": "127.0.0.1:24763",
+  "RemoteIpAddress": "::1"
+}
+2018-03-09 11:08:09.806 -05:00 [INF] Clearing 0 tokens
+2018-03-09 12:08:10.432 -05:00 [INF] Clearing 0 tokens
+2018-03-09 13:08:11.028 -05:00 [INF] Clearing 0 tokens
+2018-03-12 09:29:40.691 -05:00 [DBG] Using Identity.Application as default scheme for authentication
+2018-03-12 09:29:40.836 -05:00 [DBG] Using Identity.External as default scheme for sign-in
+2018-03-12 09:29:40.839 -05:00 [DBG] Using Identity.External as default scheme for sign-out
+2018-03-12 09:29:40.840 -05:00 [DBG] Using Identity.Application as default scheme for challenge
+2018-03-12 09:29:40.842 -05:00 [DBG] Using Identity.Application as default scheme for forbid
+2018-03-12 09:29:42.422 -05:00 [DBG] Starting token cleanup
+2018-03-12 09:41:44.608 -05:00 [DBG] Using Identity.Application as default scheme for authentication
+2018-03-12 09:41:44.722 -05:00 [DBG] Using Identity.External as default scheme for sign-in
+2018-03-12 09:41:44.728 -05:00 [DBG] Using Identity.External as default scheme for sign-out
+2018-03-12 09:41:44.740 -05:00 [DBG] Using Identity.Application as default scheme for challenge
+2018-03-12 09:41:44.759 -05:00 [DBG] Using Identity.Application as default scheme for forbid
+2018-03-12 09:41:45.994 -05:00 [DBG] Starting token cleanup
+2018-03-12 09:43:30.791 -05:00 [DBG] Augmenting SignInContext
+2018-03-12 09:43:32.011 -05:00 [DBG] Adding idp claim with value: local
+2018-03-12 09:43:32.014 -05:00 [DBG] Adding amr claim with value: pwd
+2018-03-12 09:43:32.018 -05:00 [DBG] Adding auth_time claim with value: 1520865810
+2018-03-12 09:43:32.041 -05:00 [INF] AuthenticationScheme: Identity.Application signed in.
+2018-03-12 09:43:32.456 -05:00 [INF] {
+  "Name": "User Login Success",
+  "Category": "Authentication",
+  "EventType": "Success",
+  "Id": 1000,
+  "Username": "dimortizp91@gmail.com",
+  "SubjectId": "f6ac8e90-d578-428e-9d5e-557a53901551",
+  "DisplayName": "dimortizp91@gmail.com",
+  "Endpoint": "UI",
+  "ActivityId": "0HLC84TGLG4HU:00000003",
+  "TimeStamp": "2018-03-12T14:43:32Z",
+  "ProcessId": 4308,
+  "LocalIpAddress": "127.0.0.1:14946",
+  "RemoteIpAddress": "::1"
+}
+2018-03-12 09:43:32.533 -05:00 [INF] AuthenticationScheme: Identity.Application was successfully authenticated.
+2018-03-12 09:43:32.541 -05:00 [INF] AuthenticationScheme: Identity.Application was successfully authenticated.
+2018-03-12 09:43:56.123 -05:00 [INF] AuthenticationScheme: Identity.Application was successfully authenticated.
+2018-03-12 09:43:56.133 -05:00 [INF] AuthenticationScheme: Identity.Application was successfully authenticated.
+2018-03-12 09:44:14.364 -05:00 [INF] AuthenticationScheme: Identity.Application was successfully authenticated.
+2018-03-12 09:44:14.367 -05:00 [INF] AuthenticationScheme: Identity.Application was successfully authenticated.
+2018-03-12 09:45:00.592 -05:00 [INF] AuthenticationScheme: Identity.Application was successfully authenticated.
+2018-03-12 09:45:00.595 -05:00 [INF] AuthenticationScheme: Identity.Application was successfully authenticated.
+2018-03-12 09:45:03.751 -05:00 [INF] AuthenticationScheme: Identity.Application was successfully authenticated.
+2018-03-12 09:45:03.756 -05:00 [INF] AuthenticationScheme: Identity.Application was successfully authenticated.
+2018-03-12 09:45:03.797 -05:00 [INF] AuthenticationScheme: Identity.Application signed out.
+2018-03-12 09:45:03.801 -05:00 [INF] AuthenticationScheme: Identity.External signed out.
+2018-03-12 09:45:03.805 -05:00 [INF] AuthenticationScheme: Identity.TwoFactorUserId signed out.
+2018-03-12 09:45:03.827 -05:00 [INF] {
+  "Name": "User Logout Success",
+  "Category": "Authentication",
+  "EventType": "Success",
+  "Id": 1002,
+  "SubjectId": "f6ac8e90-d578-428e-9d5e-557a53901551",
+  "DisplayName": "dimortizp91@gmail.com",
+  "ActivityId": "0HLC84TGLG4HS:00000007",
+  "TimeStamp": "2018-03-12T14:45:03Z",
+  "ProcessId": 4308,
+  "LocalIpAddress": "127.0.0.1:14946",
+  "RemoteIpAddress": "::1"
+}
+2018-03-12 09:56:05.871 -05:00 [DBG] Augmenting SignInContext
+2018-03-12 09:56:05.874 -05:00 [DBG] Adding idp claim with value: local
+2018-03-12 09:56:05.877 -05:00 [DBG] Adding amr claim with value: pwd
+2018-03-12 09:56:05.880 -05:00 [DBG] Adding auth_time claim with value: 1520866565
+2018-03-12 09:56:05.884 -05:00 [INF] AuthenticationScheme: Identity.Application signed in.
+2018-03-12 09:56:06.007 -05:00 [INF] {
+  "Name": "User Login Success",
+  "Category": "Authentication",
+  "EventType": "Success",
+  "Id": 1000,
+  "Username": "dimortizp91@gmail.com",
+  "SubjectId": "f6ac8e90-d578-428e-9d5e-557a53901551",
+  "DisplayName": "dimortizp91@gmail.com",
+  "Endpoint": "UI",
+  "ActivityId": "0HLC84TGLG4IE:00000001",
+  "TimeStamp": "2018-03-12T14:56:06Z",
+  "ProcessId": 4308,
+  "LocalIpAddress": "127.0.0.1:14946",
+  "RemoteIpAddress": "::1"
+}
+2018-03-12 09:56:06.061 -05:00 [INF] AuthenticationScheme: Identity.Application was successfully authenticated.
+2018-03-12 09:56:06.065 -05:00 [INF] AuthenticationScheme: Identity.Application was successfully authenticated.

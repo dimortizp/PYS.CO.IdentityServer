@@ -1,0 +1,12 @@
+E:\PYS.CO.IdentityServer\src\PYS.IdentityServer.Security\bin\Debug\netcoreapp2.0\PYS.IdentityServer.Security.deps.json
+E:\PYS.CO.IdentityServer\src\PYS.IdentityServer.Security\bin\Debug\netcoreapp2.0\PYS.IdentityServer.Security.runtimeconfig.json
+E:\PYS.CO.IdentityServer\src\PYS.IdentityServer.Security\bin\Debug\netcoreapp2.0\PYS.IdentityServer.Security.runtimeconfig.dev.json
+E:\PYS.CO.IdentityServer\src\PYS.IdentityServer.Security\bin\Debug\netcoreapp2.0\PYS.IdentityServer.Security.dll
+E:\PYS.CO.IdentityServer\src\PYS.IdentityServer.Security\bin\Debug\netcoreapp2.0\PYS.IdentityServer.Security.pdb
+E:\PYS.CO.IdentityServer\src\PYS.IdentityServer.Security\obj\Debug\netcoreapp2.0\PYS.IdentityServer.Security.csprojResolveAssemblyReference.cache
+E:\PYS.CO.IdentityServer\src\PYS.IdentityServer.Security\obj\Debug\netcoreapp2.0\PYS.IdentityServer.Security.csproj.CoreCompileInputs.cache
+E:\PYS.CO.IdentityServer\src\PYS.IdentityServer.Security\obj\Debug\netcoreapp2.0\UserSecretsAssemblyInfo.cs
+E:\PYS.CO.IdentityServer\src\PYS.IdentityServer.Security\obj\Debug\netcoreapp2.0\PYS.IdentityServer.Security.AssemblyInfoInputs.cache
+E:\PYS.CO.IdentityServer\src\PYS.IdentityServer.Security\obj\Debug\netcoreapp2.0\PYS.IdentityServer.Security.AssemblyInfo.cs
+E:\PYS.CO.IdentityServer\src\PYS.IdentityServer.Security\obj\Debug\netcoreapp2.0\PYS.IdentityServer.Security.dll
+E:\PYS.CO.IdentityServer\src\PYS.IdentityServer.Security\obj\Debug\netcoreapp2.0\PYS.IdentityServer.Security.pdb
