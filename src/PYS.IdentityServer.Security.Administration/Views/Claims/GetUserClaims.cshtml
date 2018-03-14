@@ -1,0 +1,44 @@
+﻿@model PYS.IdentityServer.Security.Administration.Authorize.Claims.ClaimsViewModel
+
+@{
+    ViewData["Title"] = "GetUserClaims";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Claims del usuario @Model.User.UserName</h2>
+
+<p>
+    <a asp-action="AddAplicationToUser" asp-route-id ="@Model.User.Id">Agregar Aplicación</a>
+</p>
+
+<p>
+    <a asp-action="AddClaimsToUser" asp-route-id="@Model.User.Id">Agregar Agregar Permisos</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Claims.FirstOrDefault().Type)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Claims.FirstOrDefault().Value)
+                </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Claims) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Value)
+            </td>
+            <td>
+                @Html.ActionLink("Eliminar", "Delete", new { UserId = Model.User.Id, Type = item.Type, Value = item.Value })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
