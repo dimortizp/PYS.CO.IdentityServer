@@ -103,13 +103,20 @@ namespace PYS.IdentityServer.Security.Administration.Authorize.Users
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, ApplicationUser user)
+        public async Task<IActionResult> Edit(ApplicationUser user)
         {
             try
             {
                 if (ModelState.IsValid)
                 {
-                    IdentityResult result = await _userManager.UpdateAsync(user);
+                    ApplicationUser unmodifiedUser = await _userManager.FindByIdAsync(user.Id);
+                    unmodifiedUser.Document = user.Document;
+                    unmodifiedUser.Names = user.Names;
+                    unmodifiedUser.Address = user.Address;
+                    unmodifiedUser.Email = user.Email;
+                    unmodifiedUser.PhoneNumber = user.PhoneNumber;
+
+                    IdentityResult result = await _userManager.UpdateAsync(unmodifiedUser);
 
                     if (result.Succeeded)
                     {
@@ -125,7 +132,7 @@ namespace PYS.IdentityServer.Security.Administration.Authorize.Users
             }
             catch (Exception e)
             {
-                _logger.LogCritical(e, "Error editando el usuario ", id, user);
+                _logger.LogCritical(e, "Error editando el usuario ", user);
                 return View();
             }
         }

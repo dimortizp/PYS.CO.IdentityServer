@@ -14,6 +14,8 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using System.Text;
 using IdentityServerWithAspIdAndEF.Profiles;
 using IdentityServerWithAspIdAndEF.Services;
+using PYS.IdentityServer.Security.Administration.ConfigurationStore;
+using IdentityServer4.Stores;
 
 namespace IdentityServerWithAspIdAndEF
 {
@@ -39,6 +41,8 @@ namespace IdentityServerWithAspIdAndEF
             string connectionString = Configuration.GetConnectionString("IdentityServerConnection");
             var migrationsAssembly = typeof(Startup).GetTypeInfo().Assembly.GetName().Name;
 
+            services.AddDbContext<ConfigurationStoreContext>(options =>
+                options.UseSqlServer(connectionString));
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(connectionString));
 
@@ -80,7 +84,8 @@ namespace IdentityServerWithAspIdAndEF
                     // this enables automatic token cleanup. this is optional.
                     options.EnableTokenCleanup = true;
                     // options.TokenCleanupInterval = 15; // frequency in seconds to cleanup stale grants. 15 is useful during debugging
-                });
+                })
+                .AddResourceStore<ResourceStore>();
             //services.AddScoped<IProfileService, ProfileService>();
             //if (Environment.IsDevelopment())
             {
@@ -100,6 +105,7 @@ namespace IdentityServerWithAspIdAndEF
 
 
             services.AddTransient<IEmailSender, EmailSender>();
+            services.AddTransient<IResourceStore, ResourceStore>();
 
             var signingKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(Configuration.GetSection("TokenAuthentication:SecretKey").Value));
             services.AddTransient<IProfileService, ProfileService>();

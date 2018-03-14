@@ -12,7 +12,7 @@
 </p>
 
 <p>
-    <a asp-action="AddClaim" asp-route-id="@Model.User.Id">Agregar Agregar Permisos</a>
+    <a asp-action="AddClaimsToUser" asp-route-id="@Model.User.Id">Agregar Agregar Permisos</a>
 </p>
 <table class="table">
     <thead>
@@ -36,7 +36,7 @@
                 @Html.DisplayFor(modelItem => item.Value)
             </td>
             <td>
-                @Html.ActionLink("Eliminar", "Delete", new { })
+                @Html.ActionLink("Eliminar", "Delete", new { UserId = Model.User.Id, Type = item.Type, Value = item.Value })
             </td>
         </tr>
 }

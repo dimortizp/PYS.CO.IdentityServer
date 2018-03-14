@@ -283,12 +283,6 @@ namespace IdentityServer4.Authorize.UI
             return View();
         }
 
-        public async Task<IActionResult> Test (RegisterViewModel model, string returnUrl = null)
-        {
-            
-            return null;
-        }
-
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -309,7 +303,7 @@ namespace IdentityServer4.Authorize.UI
 
                     await _signInManager.SignInAsync(user, isPersistent: false);
                     _logger.LogInformation("User created a new account with password.");
-                    return RedirectToLocal(returnUrl);
+                    return RedirectToAction("Index", "Users");
                 }
                 AddErrors(result);
             }

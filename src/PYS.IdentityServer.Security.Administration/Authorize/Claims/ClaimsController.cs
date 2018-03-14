@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.Extensions.Logging;
 using IdentityServerWithAspIdAndEF.Services;
 using System.Security.Claims;
+using IdentityServer4.Models;
 
 namespace PYS.IdentityServer.Security.Administration.Authorize.Claims
 {
@@ -27,6 +28,7 @@ namespace PYS.IdentityServer.Security.Administration.Authorize.Claims
         private readonly IEventService _events;
         private readonly ILogger _logger;
         private readonly IEmailSender _emailSender;
+        private readonly IResourceStore _resourceStore;
 
         #endregion
 
@@ -40,7 +42,8 @@ namespace PYS.IdentityServer.Security.Administration.Authorize.Claims
             IAuthenticationSchemeProvider schemeProvider,
             IEventService events,
             IEmailSender emailSender,
-            ILogger<ClaimsController> logger)
+            ILogger<ClaimsController> logger,
+            IResourceStore resourceStore)
         {
             _userManager = userManager;
             _signInManager = signInManager;
@@ -50,6 +53,7 @@ namespace PYS.IdentityServer.Security.Administration.Authorize.Claims
             _events = events;
             _logger = logger;
             _emailSender = emailSender;
+            _resourceStore = resourceStore;
         }
 
 
@@ -114,15 +118,26 @@ namespace PYS.IdentityServer.Security.Administration.Authorize.Claims
             return View();
         }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        [HttpGet]
+        public async Task<IActionResult> Delete(string UserId, string Type, string Value)
         {
             try
             {
+                ApplicationUser user = await _userManager.FindByIdAsync(UserId);
+                Claim claim = (await _userManager.GetClaimsAsync(user)).Where(x => x.Type == Type && x.Value == Value).FirstOrDefault();
+                if(claim != null)
+                {
+                    IdentityResult result = await _userManager.RemoveClaimAsync(user, claim);
+                    if (result.Succeeded)
+                    {
+                        return RedirectToAction(nameof(GetUserClaims),new { Id = user.Id });
+
+                    }
+                }
+                return View();
+
                 // TODO: Add delete logic here
 
-                return RedirectToAction(nameof(Index));
             }
             catch
             {
@@ -143,15 +158,107 @@ namespace PYS.IdentityServer.Security.Administration.Authorize.Claims
             return View(vm);
         }
 
+        [HttpGet]
         public async Task<IActionResult> AddAplicationToUser(string id)
         {
             ApplicationUser user = await _userManager.FindByIdAsync(id);
 
-            return View();
+            var resources = await  _resourceStore.GetAllEnabledResourcesAsync();
+
+            AddClaimsToUserViewModel vm = new AddClaimsToUserViewModel()
+            {
+                Type = "Application",
+                UserName = user.UserName,
+                ApiResources = resources.ApiResources.ToList()
+            };
+
+            return View(vm);
 
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> AddAplicationToUser(AddClaimsToUserViewModel vm)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    ApplicationUser user = await _userManager.FindByNameAsync(vm.UserName);
+                    Claim c = new Claim(vm.Type, vm.Value);
+                    IdentityResult result = await _userManager.AddClaimAsync(user,c);
 
+                    if(result.Succeeded)
+                        return RedirectToAction(nameof(GetUserClaims),new { Id = user.Id });
+
+                    AddErrors(result);
+
+                }
+                return View(vm);
+
+            }
+            catch(Exception e)
+            {
+                return View();
+            }
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> AddClaimsToUser(string id)
+        {
+            ApplicationUser user = await _userManager.FindByIdAsync(id);
+
+            var resources = await _resourceStore.GetAllEnabledResourcesAsync();
+
+            AddClaimsToUserViewModel vm = new AddClaimsToUserViewModel()
+            {
+                UserName = user.UserName,
+                ApiResources = resources.ApiResources.ToList()
+            };
+
+            return View(vm);
+
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> AddClaimsToUser(AddClaimsToUserViewModel vm)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    ApplicationUser user = await _userManager.FindByNameAsync(vm.UserName);
+                    Claim c = new Claim(vm.Type, vm.Value);
+                    IdentityResult result = await _userManager.AddClaimAsync(user, c);
+
+                    if (result.Succeeded)
+                        return RedirectToAction(nameof(GetUserClaims), new { Id = user.Id });
+
+                    AddErrors(result);
+
+                }
+                return View(vm);
+
+            }
+            catch (Exception e)
+            {
+                return View();
+            }
+        }
+
+
+        #endregion
+
+
+        #region private methods
+        private void AddErrors(IdentityResult result)
+        {
+            foreach (var error in result.Errors)
+            {
+                ModelState.AddModelError(string.Empty, error.Description);
+            }
+        }
         #endregion
     }
 }
