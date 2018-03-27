@@ -43,6 +43,21 @@
           "lib/netstandard2.0/IdentityModel.dll": {}
         }
       },
+      "IdentityModel.AspNetCore.OAuth2Introspection/3.1.0": {
+        "type": "package",
+        "dependencies": {
+          "IdentityModel": "3.0.0",
+          "Microsoft.AspNetCore.Authentication": "2.0.1",
+          "Microsoft.AspNetCore.Http.Abstractions": "2.0.1",
+          "Microsoft.Extensions.Caching.Memory": "2.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/IdentityModel.AspNetCore.OAuth2Introspection.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/IdentityModel.AspNetCore.OAuth2Introspection.dll": {}
+        }
+      },
       "IdentityServer4/2.1.0": {
         "type": "package",
         "dependencies": {
@@ -62,6 +77,20 @@
         },
         "runtime": {
           "lib/netstandard2.0/IdentityServer4.dll": {}
+        }
+      },
+      "IdentityServer4.AccessTokenValidation/2.4.0": {
+        "type": "package",
+        "dependencies": {
+          "IdentityModel.AspNetCore.OAuth2Introspection": "3.1.0",
+          "Microsoft.AspNetCore.Authentication.JwtBearer": "2.0.1",
+          "Microsoft.AspNetCore.Authorization": "2.0.1"
+        },
+        "compile": {
+          "lib/netstandard2.0/IdentityServer4.AccessTokenValidation.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/IdentityServer4.AccessTokenValidation.dll": {}
         }
       },
       "IdentityServer4.AspNetIdentity/2.0.0": {
@@ -5209,6 +5238,20 @@
         "lib/netstandard2.0/IdentityModel.xml"
       ]
     },
+    "IdentityModel.AspNetCore.OAuth2Introspection/3.1.0": {
+      "sha512": "x8e2m1JAHpUG+u8fuYtda72ppeqCSux+YIytLLII9eDqm5mK7sofqWzPlXTUQ9bD6qGFZrK+frMyjRfARKTKPQ==",
+      "type": "package",
+      "path": "identitymodel.aspnetcore.oauth2introspection/3.1.0",
+      "files": [
+        "identitymodel.aspnetcore.oauth2introspection.3.1.0.nupkg.sha512",
+        "identitymodel.aspnetcore.oauth2introspection.nuspec",
+        "lib/net461/IdentityModel.AspNetCore.OAuth2Introspection.dll",
+        "lib/net461/IdentityModel.AspNetCore.OAuth2Introspection.pdb",
+        "lib/netstandard2.0/IdentityModel.AspNetCore.OAuth2Introspection.dll",
+        "lib/netstandard2.0/IdentityModel.AspNetCore.OAuth2Introspection.pdb",
+        "lib/netstandard2.0/IdentityModel.AspNetCore.OAuth2Introspection.xml"
+      ]
+    },
     "IdentityServer4/2.1.0": {
       "sha512": "NUFLWtdi0ds7dVc+kdzE7sm6emGCSCMuyFM50GfDGm7irv4OWgkbe0FL8gjzay3kZNO+Te8LCm7SCZoUob/o1w==",
       "type": "package",
@@ -5219,6 +5262,21 @@
         "lib/netstandard2.0/IdentityServer4.dll",
         "lib/netstandard2.0/IdentityServer4.pdb",
         "lib/netstandard2.0/IdentityServer4.xml"
+      ]
+    },
+    "IdentityServer4.AccessTokenValidation/2.4.0": {
+      "sha512": "6zGnz8b5SZsinxa/YBNeC4xb1NTJP0/JUkjynHYo7DoDHt2QDJSnAUgKvi9HROz4/QIsmyrZE3ZFKm3xB063kg==",
+      "type": "package",
+      "path": "identityserver4.accesstokenvalidation/2.4.0",
+      "files": [
+        "identityserver4.accesstokenvalidation.2.4.0.nupkg.sha512",
+        "identityserver4.accesstokenvalidation.nuspec",
+        "lib/net461/IdentityServer4.AccessTokenValidation.dll",
+        "lib/net461/IdentityServer4.AccessTokenValidation.pdb",
+        "lib/net461/IdentityServer4.AccessTokenValidation.xml",
+        "lib/netstandard2.0/IdentityServer4.AccessTokenValidation.dll",
+        "lib/netstandard2.0/IdentityServer4.AccessTokenValidation.pdb",
+        "lib/netstandard2.0/IdentityServer4.AccessTokenValidation.xml"
       ]
     },
     "IdentityServer4.AspNetIdentity/2.0.0": {
@@ -13423,6 +13481,7 @@
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.0": [
       "IdentityServer4 >= 2.1.0",
+      "IdentityServer4.AccessTokenValidation >= 2.4.0",
       "IdentityServer4.AspNetIdentity >= 2.0.0",
       "IdentityServer4.EntityFramework >= 2.1.0",
       "Microsoft.AspNetCore.All >= 2.0.5",
@@ -13487,6 +13546,10 @@
             "suppressParent": "All",
             "target": "Package",
             "version": "2.0.2"
+          },
+          "IdentityServer4.AccessTokenValidation": {
+            "target": "Package",
+            "version": "2.4.0"
           },
           "Serilog.Sinks.File": {
             "target": "Package",
