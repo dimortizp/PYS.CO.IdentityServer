@@ -6,9 +6,15 @@ E:\PYS.CO.IdentityServer\src\PYS.IdentityServer.Security.Administration
 --file=E:\PYS.CO.IdentityServer\src\PYS.IdentityServer.Security.Administration\Views\Account\Login.cshtml
 --file=E:\PYS.CO.IdentityServer\src\PYS.IdentityServer.Security.Administration\Views\Account\Logout.cshtml
 --file=E:\PYS.CO.IdentityServer\src\PYS.IdentityServer.Security.Administration\Views\Account\Register.cshtml
+--file=E:\PYS.CO.IdentityServer\src\PYS.IdentityServer.Security.Administration\Views\ApiResource\Create.cshtml
+--file=E:\PYS.CO.IdentityServer\src\PYS.IdentityServer.Security.Administration\Views\ApiResource\Edit.cshtml
+--file=E:\PYS.CO.IdentityServer\src\PYS.IdentityServer.Security.Administration\Views\ApiResource\Index.cshtml
 --file=E:\PYS.CO.IdentityServer\src\PYS.IdentityServer.Security.Administration\Views\Claims\AddAplicationToUser.cshtml
 --file=E:\PYS.CO.IdentityServer\src\PYS.IdentityServer.Security.Administration\Views\Claims\AddClaimsToUser.cshtml
 --file=E:\PYS.CO.IdentityServer\src\PYS.IdentityServer.Security.Administration\Views\Claims\GetUserClaims.cshtml
+--file=E:\PYS.CO.IdentityServer\src\PYS.IdentityServer.Security.Administration\Views\Client\Create.cshtml
+--file=E:\PYS.CO.IdentityServer\src\PYS.IdentityServer.Security.Administration\Views\Client\Edit.cshtml
+--file=E:\PYS.CO.IdentityServer\src\PYS.IdentityServer.Security.Administration\Views\Client\Index.cshtml
 --file=E:\PYS.CO.IdentityServer\src\PYS.IdentityServer.Security.Administration\Views\Consent\Index.cshtml
 --file=E:\PYS.CO.IdentityServer\src\PYS.IdentityServer.Security.Administration\Views\Consent\_ScopeListItem.cshtml
 --file=E:\PYS.CO.IdentityServer\src\PYS.IdentityServer.Security.Administration\Views\Diagnostics\Index.cshtml

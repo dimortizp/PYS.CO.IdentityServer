@@ -20,7 +20,7 @@ namespace PYS.IdentityServer.Security.Administration.ConfigurationStore
 
         public void AddDataToEntity()
         {
-            Description = Description;
+            Description = ApiResource.Description;
             DisplayName = ApiResource.DisplayName;
             Enabled = ApiResource.Enabled;
             Name = ApiResource.Name;

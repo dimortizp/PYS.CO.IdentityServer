@@ -16,6 +16,7 @@ using IdentityServerWithAspIdAndEF.Profiles;
 using IdentityServerWithAspIdAndEF.Services;
 using PYS.IdentityServer.Security.Administration.ConfigurationStore;
 using IdentityServer4.Stores;
+using IdentityServer4.AccessTokenValidation;
 
 namespace IdentityServerWithAspIdAndEF
 {
@@ -52,6 +53,8 @@ namespace IdentityServerWithAspIdAndEF
                 .AddDefaultTokenProviders();
 
             services.AddMvc();
+
+
 
             services.Configure<IISOptions>(iis =>
             {
@@ -105,33 +108,27 @@ namespace IdentityServerWithAspIdAndEF
 
 
             services.AddTransient<IEmailSender, EmailSender>();
-            services.AddTransient<IResourceStore, ResourceStore>();
+            services.AddTransient<IResourceStoreExtended, ResourceStore>();
+            services.AddTransient<IProfileService, ProfileService>();
+            services.AddTransient<IClientStoreExtended, ClientStore>();
 
             var signingKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(Configuration.GetSection("TokenAuthentication:SecretKey").Value));
-            services.AddTransient<IProfileService, ProfileService>();
-
-            var tokenValidationParameters = new TokenValidationParameters
+            
+            services.AddAuthentication(options =>
             {
-                // The signing key must match!
-                ValidateIssuerSigningKey = true,
-                IssuerSigningKey = signingKey,
-                // Validate the JWT Issuer (iss) claim
-                ValidateIssuer = true,
-                ValidIssuer = Configuration.GetSection("TokenAuthentication:Issuer").Value,
-                // Validate the JWT Audience (aud) claim
-                ValidateAudience = true,
-                ValidAudience = Configuration.GetSection("TokenAuthentication:Audience").Value,
-                // Validate the token expiry
-                ValidateLifetime = true,
-                // If you want to allow a certain amount of clock drift, set that here:
-                ClockSkew = TimeSpan.Zero
-            };
+                options.DefaultScheme = "Cookies";
+                options.DefaultChallengeScheme = "oidc";
+            })
+            .AddCookie("Cookies")
+            .AddOpenIdConnect("oidc", options =>
+            {
+                options.SignInScheme = "Cookies";
 
-            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-                .AddJwtBearer(options =>
-                {
-                    options.TokenValidationParameters = tokenValidationParameters;
-                });
+                options.Authority = "http://216.69.181.183/identityserver/";
+                options.RequireHttpsMetadata = false;
+                options.ClientId = "IdentityServerAdmin";
+                options.SaveTokens = true;
+            });
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -145,7 +142,7 @@ namespace IdentityServerWithAspIdAndEF
             {
                 app.UseExceptionHandler("/Home/Error");
             }
-
+            app.UseAuthentication();
             app.UseStaticFiles();
             app.UseIdentityServer();
             app.UseMvcWithDefaultRoute();

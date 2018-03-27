@@ -21,7 +21,7 @@
   },
   "targets": {
     ".NETCoreApp,Version=v2.0": {
-      "IdentityServerWithAspIdAndEF/1.0.0": {
+      "PYS.IdentityServer.Security/1.0.0": {
         "dependencies": {
           "IdentityServer4": "2.1.0",
           "IdentityServer4.AspNetIdentity": "2.0.0",
@@ -33,10 +33,10 @@
           "Serilog.Sinks.File": "4.0.0"
         },
         "runtime": {
-          "IdentityServerWithAspIdAndEF.dll": {}
+          "PYS.IdentityServer.Security.dll": {}
         },
         "compile": {
-          "IdentityServerWithAspIdAndEF.dll": {}
+          "PYS.IdentityServer.Security.dll": {}
         }
       },
       "AutoMapper/6.1.1": {
@@ -4108,7 +4108,7 @@
     }
   },
   "libraries": {
-    "IdentityServerWithAspIdAndEF/1.0.0": {
+    "PYS.IdentityServer.Security/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

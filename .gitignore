@@ -31,3 +31,4 @@
 /src/PYS.IdentityServer.Security/bin/Debug/netcoreapp2.0/PYS.IdentityServer.Security.pdb
 /src/PYS.IdentityServer.Security/obj/Debug/netcoreapp2.0/PYS.IdentityServer.Security.dll
 /src/PYS.IdentityServer.Security/obj/Debug/netcoreapp2.0/PYS.IdentityServer.Security.pdb
+src/PYS.IdentityServer.Security/identityserver4_log.txt
