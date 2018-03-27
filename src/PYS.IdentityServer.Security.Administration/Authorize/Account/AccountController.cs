@@ -24,10 +24,12 @@ using Microsoft.Extensions.Logging;
 using IdentityServerWithAspIdAndEF.Services;
 using IdentityServerWithAspIdAndEF.Extensions;
 using PYS.IdentityServer.Security.Administration.Authorize.Users;
+using Microsoft.AspNetCore.Authorization;
 
 namespace IdentityServer4.Authorize.UI
 {
     [SecurityHeaders]
+    //[Authorize]
     public class AccountController : Controller
     {
         private readonly UserManager<ApplicationUser> _userManager;
