@@ -13,9 +13,11 @@ using Microsoft.Extensions.Logging;
 using IdentityServerWithAspIdAndEF.Services;
 using System.Security.Claims;
 using IdentityServer4.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace PYS.IdentityServer.Security.Administration.Authorize.Claims
 {
+    [Authorize(Policy = "AdministratorIS")]
     public class ClaimsController : Controller
     {
 
@@ -199,6 +201,7 @@ namespace PYS.IdentityServer.Security.Administration.Authorize.Claims
             }
             catch(Exception e)
             {
+                _logger.LogError(e,"Ha ocurrido un error fatal");
                 return View();
             }
         }
@@ -243,6 +246,7 @@ namespace PYS.IdentityServer.Security.Administration.Authorize.Claims
             }
             catch (Exception e)
             {
+                _logger.LogError(e, "Ha ocurrido un error fatal");
                 return View();
             }
         }

@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using IdentityServer4.Services;
 using IdentityServerWithAspIdAndEF.Models;
@@ -13,9 +10,11 @@ using Microsoft.Extensions.Logging;
 using IdentityServerWithAspIdAndEF.Services;
 using IdentityServer4.Models;
 using PYS.IdentityServer.Security.Administration.Authorize.ApiResources;
+using Microsoft.AspNetCore.Authorization;
 
 namespace PYS.IdentityServer.Security.Administration.Authorize
 {
+    [Authorize(Policy = "AdministratorIS")]
     public class ApiResourceController : Controller
     {
 
@@ -78,11 +77,6 @@ namespace PYS.IdentityServer.Security.Administration.Authorize
                 });
             }
             return View(list);
-        }
-
-        public ActionResult Details(int id)
-        {
-            return View();
         }
 
         public ActionResult Create()
@@ -173,9 +167,9 @@ namespace PYS.IdentityServer.Security.Administration.Authorize
         }
 
         [HttpGet]
-        public async Task<IActionResult> Disable(string id)
+        public IActionResult Disable(string id)
         {
-            _resourceStoreExtended.ApiResourceChangeState(id,false);
+            _resourceStoreExtended.ApiResourceChangeState(id, false);
 
             return RedirectToAction(nameof(Index));
 

@@ -8,15 +8,11 @@ using Microsoft.Extensions.DependencyInjection;
 using IdentityServerWithAspIdAndEF.Data;
 using IdentityServerWithAspIdAndEF.Models;
 using System.Reflection;
-using Microsoft.IdentityModel.Tokens;
 using IdentityServer4.Services;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using System.Text;
 using IdentityServerWithAspIdAndEF.Profiles;
 using IdentityServerWithAspIdAndEF.Services;
 using PYS.IdentityServer.Security.Administration.ConfigurationStore;
-using IdentityServer4.Stores;
-using IdentityServer4.AccessTokenValidation;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace IdentityServerWithAspIdAndEF
 {
@@ -28,7 +24,7 @@ namespace IdentityServerWithAspIdAndEF
         public Startup(IConfiguration configuration, IHostingEnvironment environment)
         {
             Environment = environment;
-
+            //appsettings.json configuration
             var builder = new ConfigurationBuilder()
                 .SetBasePath(environment.ContentRootPath)
                 .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
@@ -39,6 +35,7 @@ namespace IdentityServerWithAspIdAndEF
 
         public void ConfigureServices(IServiceCollection services)
         {
+            #region basic configuration
             string connectionString = Configuration.GetConnectionString("IdentityServerConnection");
             var migrationsAssembly = typeof(Startup).GetTypeInfo().Assembly.GetName().Name;
 
@@ -62,6 +59,10 @@ namespace IdentityServerWithAspIdAndEF
                 iis.AutomaticAuthentication = false;
             });
 
+            #endregion
+
+            #region identity server configuration
+
             var builder = services.AddIdentityServer(options =>
                 {
                     options.Events.RaiseErrorEvents = true;
@@ -70,6 +71,7 @@ namespace IdentityServerWithAspIdAndEF
                     options.Events.RaiseSuccessEvents = true;
                 })
                 .AddAspNetIdentity<ApplicationUser>()
+                
                 // this adds the config data from DB (clients, resources)
                 .AddConfigurationStore(options =>
                 {
@@ -86,49 +88,54 @@ namespace IdentityServerWithAspIdAndEF
 
                     // this enables automatic token cleanup. this is optional.
                     options.EnableTokenCleanup = true;
-                    // options.TokenCleanupInterval = 15; // frequency in seconds to cleanup stale grants. 15 is useful during debugging
                 })
                 .AddResourceStore<ResourceStore>();
-            //services.AddScoped<IProfileService, ProfileService>();
-            //if (Environment.IsDevelopment())
-            {
                 builder.AddDeveloperSigningCredential();
-            }
-            //else
-            //{
-            //    throw new exception("need to configure key material");
-            //}
 
-            services.AddAuthentication()
-                .AddGoogle(options =>
-                {
-                    options.ClientId = "708996912208-9m4dkjb5hscn7cjrn5u0r4tbgkbj1fko.apps.googleusercontent.com";
-                    options.ClientSecret = "wdfPY6t8H8cecgjlxud__4Gh";
-                });
+            #endregion
 
-
+            #region Stores configuration
             services.AddTransient<IEmailSender, EmailSender>();
             services.AddTransient<IResourceStoreExtended, ResourceStore>();
             services.AddTransient<IProfileService, ProfileService>();
             services.AddTransient<IClientStoreExtended, ClientStore>();
+            #endregion
 
-            var signingKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(Configuration.GetSection("TokenAuthentication:SecretKey").Value));
-            
-            services.AddAuthentication(options =>
-            {
-                options.DefaultScheme = "Cookies";
-                options.DefaultChallengeScheme = "oidc";
-            })
-            .AddCookie("Cookies")
-            .AddOpenIdConnect("oidc", options =>
-            {
-                options.SignInScheme = "Cookies";
+            #region  Authentication
 
-                options.Authority = "http://216.69.181.183/identityserver/";
-                options.RequireHttpsMetadata = false;
-                options.ClientId = "IdentityServerAdmin";
-                options.SaveTokens = true;
+            //services.AddAuthentication(options =>
+            //{
+            //    options.DefaultScheme = "Cookies";
+            //    options.DefaultChallengeScheme = "oidc";
+            //})
+            //.AddCookie("Cookies")
+            //.AddOpenIdConnect("oidc", options =>
+            //{
+            //    options.SignInScheme = "Cookies";
+
+            //    options.Authority = "http://216.69.181.183/identityserver/";
+            //    options.RequireHttpsMetadata = false;
+            //    options.ClientId = "IdentityServerAdmin";
+            //    options.SaveTokens = true;
+            //});
+
+            #endregion
+
+            #region authorization
+            services.AddAuthorization(options => {
+                options.AddPolicy("AdministratorIS", policy => policy
+                                                                .RequireClaim("Application", "IdentityServer")
+                                                                .RequireClaim("IdentityServer","Admin"));
+            }
+            );
+
+            services.ConfigureApplicationCookie(options =>
+            {
+                options.AccessDeniedPath = "/Home/AccessDenied";
             });
+
+            #endregion
+
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)

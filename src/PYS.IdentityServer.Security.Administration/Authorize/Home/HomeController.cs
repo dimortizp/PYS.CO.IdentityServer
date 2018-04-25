@@ -3,6 +3,7 @@
 
 
 using IdentityServer4.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
@@ -17,7 +18,7 @@ namespace IdentityServer4.Authorize.UI
         {
             _interaction = interaction;
         }
-
+        [Authorize(Policy = "AdministratorIS")]
         public IActionResult Index()
         {
             return View();
@@ -26,6 +27,7 @@ namespace IdentityServer4.Authorize.UI
         /// <summary>
         /// Shows the error page
         /// </summary>
+        [Authorize(Policy = "AdministratorIS")]
         public async Task<IActionResult> Error(string errorId)
         {
             var vm = new ErrorViewModel();
@@ -38,6 +40,12 @@ namespace IdentityServer4.Authorize.UI
             }
 
             return View("Error", vm);
+        }
+
+
+        public ActionResult AccessDenied()
+        {
+            return View();
         }
     }
 }

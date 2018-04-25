@@ -17,7 +17,7 @@ namespace IdentityServer4.Authorize.UI
     /// This controller processes the consent UI
     /// </summary>
     [SecurityHeaders]
-    [Authorize]
+    [Authorize(Policy = "AdministratorIS")]
     public class ConsentController : Controller
     {
         private readonly IIdentityServerInteractionService _interaction;
