@@ -19,11 +19,13 @@ E:\PYS.CO.IdentityServer\src\PYS.IdentityServer.Security.Administration
 --file=E:\PYS.CO.IdentityServer\src\PYS.IdentityServer.Security.Administration\Views\Consent\_ScopeListItem.cshtml
 --file=E:\PYS.CO.IdentityServer\src\PYS.IdentityServer.Security.Administration\Views\Diagnostics\Index.cshtml
 --file=E:\PYS.CO.IdentityServer\src\PYS.IdentityServer.Security.Administration\Views\Grants\Index.cshtml
+--file=E:\PYS.CO.IdentityServer\src\PYS.IdentityServer.Security.Administration\Views\Home\AccessDenied.cshtml
 --file=E:\PYS.CO.IdentityServer\src\PYS.IdentityServer.Security.Administration\Views\Home\Index.cshtml
 --file=E:\PYS.CO.IdentityServer\src\PYS.IdentityServer.Security.Administration\Views\Shared\Error.cshtml
 --file=E:\PYS.CO.IdentityServer\src\PYS.IdentityServer.Security.Administration\Views\Shared\_Layout.cshtml
 --file=E:\PYS.CO.IdentityServer\src\PYS.IdentityServer.Security.Administration\Views\Shared\_ValidationScriptsPartial.cshtml
 --file=E:\PYS.CO.IdentityServer\src\PYS.IdentityServer.Security.Administration\Views\Shared\_ValidationSummary.cshtml
+--file=E:\PYS.CO.IdentityServer\src\PYS.IdentityServer.Security.Administration\Views\Users\ChangePassword.cshtml
 --file=E:\PYS.CO.IdentityServer\src\PYS.IdentityServer.Security.Administration\Views\Users\Details.cshtml
 --file=E:\PYS.CO.IdentityServer\src\PYS.IdentityServer.Security.Administration\Views\Users\Edit.cshtml
 --file=E:\PYS.CO.IdentityServer\src\PYS.IdentityServer.Security.Administration\Views\Users\Index.cshtml
