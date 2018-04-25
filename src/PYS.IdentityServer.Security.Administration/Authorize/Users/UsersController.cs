@@ -11,9 +11,11 @@ using IdentityServer4.Stores;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.Extensions.Logging;
 using IdentityServerWithAspIdAndEF.Services;
+using Microsoft.AspNetCore.Authorization;
 
 namespace PYS.IdentityServer.Security.Administration.Authorize.Users
 {
+    [Authorize(Policy = "AdministratorIS")]
     public class UsersController : Controller
     {
 
@@ -155,6 +157,56 @@ namespace PYS.IdentityServer.Security.Administration.Authorize.Users
             }
             catch
             {
+                return View();
+            }
+        }
+
+        #endregion
+
+        #region public functionalities
+
+        [HttpGet]
+        public ActionResult ChangePassword(string id)
+        {
+            Task<ApplicationUser> user = _userManager.FindByIdAsync(id);
+
+            ChangePasswordViewModel vm = new ChangePasswordViewModel()
+            {
+                UserName = user.Result.UserName
+            };
+
+            return View(vm);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ChangePassword(ChangePasswordViewModel user)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    ApplicationUser unmodifiedUser = await _userManager.FindByNameAsync(user.UserName);
+
+                    String token = await _userManager.GeneratePasswordResetTokenAsync(unmodifiedUser);
+
+                    IdentityResult result = await _userManager.ResetPasswordAsync(unmodifiedUser,token,user.Password);
+
+                    if (result.Succeeded)
+                    {
+                        _logger.LogInformation("Password updated", user);
+                        return RedirectToAction(nameof(Index));
+
+                    }
+                    AddErrors(result);
+
+                }
+                // If we got this far, something failed, redisplay form
+                return View(user);
+            }
+            catch (Exception e)
+            {
+                _logger.LogCritical(e, "Error editando el usuario ", user);
                 return View();
             }
         }

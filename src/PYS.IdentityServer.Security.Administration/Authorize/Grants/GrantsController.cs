@@ -16,7 +16,7 @@ namespace IdentityServer4.Authorize.UI
     /// This sample controller allows a user to revoke grants given to clients
     /// </summary>
     [SecurityHeaders]
-    [Authorize]
+    [Authorize(Policy = "AdministratorIS")]
     public class GrantsController : Controller
     {
         private readonly IIdentityServerInteractionService _interaction;

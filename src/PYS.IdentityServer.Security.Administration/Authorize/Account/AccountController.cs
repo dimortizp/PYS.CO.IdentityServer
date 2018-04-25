@@ -29,7 +29,6 @@ using Microsoft.AspNetCore.Authorization;
 namespace IdentityServer4.Authorize.UI
 {
     [SecurityHeaders]
-    //[Authorize]
     public class AccountController : Controller
     {
         private readonly UserManager<ApplicationUser> _userManager;
@@ -136,6 +135,7 @@ namespace IdentityServer4.Authorize.UI
         }
 
         [HttpGet]
+        [Authorize(Policy = "AdministratorIS")]
         public ViewResult Users(UsersViewModel uvm)
         {
 
@@ -279,6 +279,7 @@ namespace IdentityServer4.Authorize.UI
         }
 
         [HttpGet]
+        [Authorize(Policy = "AdministratorIS")]
         public IActionResult Register(string returnUrl = null)
         {
             ViewData["ReturnUrl"] = returnUrl;
@@ -288,6 +289,7 @@ namespace IdentityServer4.Authorize.UI
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Policy = "AdministratorIS")]
         public async Task<IActionResult> Register(RegisterViewModel model, string returnUrl = null)
         {
             ViewData["ReturnUrl"] = returnUrl;
@@ -315,6 +317,7 @@ namespace IdentityServer4.Authorize.UI
         }
         
         [HttpGet]
+        [Authorize(Policy = "AdministratorIS")]
         public async Task<IActionResult> ConfirmEmail(string userId, string code)
         {
             if (userId == null || code == null)

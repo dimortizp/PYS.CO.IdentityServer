@@ -46,7 +46,7 @@
                         <td>
                             @Html.ActionLink("Editar", "Edit", new { id=item.Id }) |
                             @Html.ActionLink("Detalles", "Details", new { id = item.Id }) |
-                            @*@Html.ActionLink("Inactivar", "Delete", new { id = item.Id })*@
+                            @Html.ActionLink("Cambiar Clave", "ChangePassword", new { id = item.Id })
                         </td>
                     </tr>
             }
