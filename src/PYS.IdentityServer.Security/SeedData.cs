@@ -4,7 +4,6 @@ using System.Security.Claims;
 using IdentityModel;
 using IdentityServer4.EntityFramework.DbContexts;
 using IdentityServer4.EntityFramework.Mappers;
-using IdentityServerWithAspIdAndEF;
 using IdentityServerWithAspIdAndEF.Data;
 using IdentityServerWithAspIdAndEF.Models;
 using Microsoft.AspNetCore.Identity;

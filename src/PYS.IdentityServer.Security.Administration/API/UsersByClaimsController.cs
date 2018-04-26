@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Identity;
 using IdentityServerWithAspIdAndEF.Models;
@@ -43,7 +42,7 @@ namespace PYS.IdentityServer.Security.Administration.API
                 users.Add(new UserViewModel() { Email = user.Email, UserName = user.UserName });
             }
             if(userName != null)
-            users = users.Where(x => x.UserName.Contains(userName)).ToList();
+            users = users.Where(x => x.UserName.ToLowerInvariant().Contains(userName.ToLowerInvariant())).ToList();
             return PaginatedList<UserViewModel>.Create(users, pageIndex, pageSize);
         }
     #endregion

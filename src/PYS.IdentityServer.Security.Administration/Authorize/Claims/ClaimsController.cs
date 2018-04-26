@@ -12,7 +12,6 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.Extensions.Logging;
 using IdentityServerWithAspIdAndEF.Services;
 using System.Security.Claims;
-using IdentityServer4.Models;
 using Microsoft.AspNetCore.Authorization;
 
 namespace PYS.IdentityServer.Security.Administration.Authorize.Claims

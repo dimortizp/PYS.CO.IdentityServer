@@ -19,10 +19,8 @@ using System.Linq;
 using System;
 using System.Collections.Generic;
 using IdentityServerWithAspIdAndEF.Models;
-using IdentityServerWithAspIdAndEF.Models.AccountsViewModel;
 using Microsoft.Extensions.Logging;
 using IdentityServerWithAspIdAndEF.Services;
-using IdentityServerWithAspIdAndEF.Extensions;
 
 namespace IdentityServer4.Authorize.UI
 {

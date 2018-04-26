@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Linq;
-using IdentityServerWithAspIdAndEF;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Logging;

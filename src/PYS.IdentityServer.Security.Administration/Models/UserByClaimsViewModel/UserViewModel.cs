@@ -1,6 +1,4 @@
-﻿using PYS.IdentityServer.Security.Administration.Authorize;
-
-namespace PYS.IdentityServer.Security.Administration.Models.UserByClaimsViewModel
+﻿namespace PYS.IdentityServer.Security.Administration.Models.UserByClaimsViewModel
 {
     public class UserViewModel
     {

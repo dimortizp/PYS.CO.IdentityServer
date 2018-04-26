@@ -1,6 +1,4 @@
 ﻿using IdentityServer4.Models;
-using IdentityServerWithAspIdAndEF.Models;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 

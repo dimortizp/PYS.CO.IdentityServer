@@ -1,6 +1,4 @@
 ﻿using IdentityServer4.Models;
-using Newtonsoft.Json;
-using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PYS.IdentityServer.Security.Administration.ConfigurationStore
